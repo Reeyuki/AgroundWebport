@@ -117,47 +117,6 @@
 			user-select: none;
 		}
 
-		#fullscreen-btn {
-			position: fixed;
-			top: 16px;
-			right: 16px;
-			z-index: 20;
-			width: 44px;
-			height: 44px;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			border-radius: 8px;
-			border: 1px solid #333333;
-			background: #1c1c1c;
-			color: #d0d0d0;
-			cursor: pointer;
-			transition: background 0.2s ease, color 0.2s ease;
-		}
-
-		#fullscreen-btn:hover {
-			background: #262626;
-			color: #ffffff;
-		}
-
-		#fullscreen-btn:focus-visible {
-			outline: 2px solid #d0d0d0;
-			outline-offset: 2px;
-		}
-
-		#fullscreen-btn svg {
-			width: 20px;
-			height: 20px;
-			stroke: currentColor;
-			fill: none;
-			stroke-width: 2;
-			stroke-linecap: round;
-			stroke-linejoin: round;
-		}
-
-		#fullscreen-btn .icon-compress { display: none; }
-		#fullscreen-btn.active .icon-expand { display: none; }
-		#fullscreen-btn.active .icon-compress { display: block; }
 	</style>
 
 </head>
@@ -171,21 +130,6 @@
 		<div id="load-percent">0%</div>
 		<div id="load-status">Loading assets</div>
 	</div>
-
-	<button id="fullscreen-btn" type="button" aria-label="Toggle fullscreen" title="Toggle fullscreen">
-		<svg class="icon-expand" viewBox="0 0 24 24" aria-hidden="true">
-			<path d="M8 3H3v5"></path>
-			<path d="M16 3h5v5"></path>
-			<path d="M8 21H3v-5"></path>
-			<path d="M16 21h5v-5"></path>
-		</svg>
-		<svg class="icon-compress" viewBox="0 0 24 24" aria-hidden="true">
-			<path d="M3 8h5V3"></path>
-			<path d="M21 8h-5V3"></path>
-			<path d="M3 16h5v5"></path>
-			<path d="M21 16h-5v5"></path>
-		</svg>
-	</button>
 
 	<script type="text/javascript">
 		var ASSET_BASE = "https://cdn.jsdelivr.net/gh/reeyuki/AgroundWebport@main/";
@@ -260,19 +204,6 @@
 			return image;
 		};
 		window.Image.prototype = NativeImage.prototype;
-
-		var fullscreenButton = document.getElementById("fullscreen-btn");
-		function updateFullscreenState() {
-			fullscreenButton.classList.toggle("active", Boolean(document.fullscreenElement));
-		}
-		fullscreenButton.addEventListener("click", function () {
-			if (document.fullscreenElement) {
-				document.exitFullscreen();
-			} else {
-				document.documentElement.requestFullscreen().catch(function () {});
-			}
-		});
-		document.addEventListener("fullscreenchange", updateFullscreenState);
 
 		lime.embed ("openfl-content", 0, 0, "000000", ASSET_BASE);
 	</script>
