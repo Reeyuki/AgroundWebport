@@ -199,6 +199,7 @@
 		var NativeImage = window.Image;
 		window.Image = function () {
 			var image = new NativeImage();
+			image.crossOrigin = "anonymous";
 			image.addEventListener("load", assetFinished);
 			image.addEventListener("error", assetFinished);
 			return image;
