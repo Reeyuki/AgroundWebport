@@ -11,8 +11,8 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<link rel="icon" href="data:,">
 
-	<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/reeyuki/AgroundWebport@main/lib/soundjs.min.js"></script>
-	<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/reeyuki/AgroundWebport@main/Aground.js?version=2.0.7"></script>
+	<script type="text/javascript" src="lib/soundjs.min.js"></script>
+	<script type="text/javascript" src="Aground.js?version=2.0.7"></script>
 
 	<script>
 		window.addEventListener ("touchmove", function (event) { event.preventDefault (); }, false);
@@ -132,7 +132,7 @@
 	</div>
 
 	<script type="text/javascript">
-		var ASSET_BASE = "https://cdn.jsdelivr.net/gh/reeyuki/AgroundWebport@main/";
+		var ASSET_BASE = "./";
 		var ASSET_COUNTS = [["images", 442], ["texts", 408]];
 		var ASSET_TOTAL = ASSET_COUNTS.reduce(function (sum, item) { return sum + item[1]; }, 0);
 		var loadedAssets = 0;
